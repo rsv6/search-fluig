@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Fluig</title>
+</head>
+<body>
+
+  <input type='text' id="myInput" onkeyup="varrer()" placeholder="Digite o numero do fluig" title="Numero do fluig" >
+
+  <div id="lista" class="lista">
+    <a class="pai"><p class="filho">123456</p></a>
+    <a class="pai"><p class="filho">654321</p></a>
+    <a class="pai"><p class="filho">398765</p></a>
+    <a class="pai"><p class="filho">567890</p></a>
+    <a class="pai"><p class="filho">789456</p></a>
+    <a class="pai"><p class="filho">987654</p></a>
+    <a class="pai"><p class="filho">369852</p></a>
+    <a class="pai"><p class="filho">348764</p></a>
+  </div>
+
+    <script>
+      function varrer() {
+        var input, filter, lista, pai, filho, i, p, txtValue
+        var arrList = []
+
+        input = document.getElementById("myInput")
+        filter = input.value
+        lista = document.getElementById("lista")
+        pai = document.querySelectorAll(".pai")
+        filho = document.querySelectorAll(".filho")
+
+        console.log(pai[0].textContent)
+
+        for(i = 0; i < filho.length; i++) {
+          p = pai[i].textContent
+          txtValue = p
+
+          if(txtValue.indexOf(filter) > -1) {
+            pai[i].style.display = ""
+          } else {
+            pai[i].style.display = "none"
+          }
+        }
+      }
+      varrer()
+    </script>
+
+</body>
+</html>
